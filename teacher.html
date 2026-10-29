@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9efe8">
+  <title>Teacher Dashboard · Forest Friend Pass</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="teacher">
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Forest Friend Pass home"><span aria-hidden="true">🐸</span> Forest Friend Pass</a>
+    <a class="button button-small button-quiet" href="index.html">Home</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-intro">
+      <div>
+        <p class="eyebrow">A gentle overview</p>
+        <h1>Teacher Dashboard</h1>
+        <p>Review pass requests and keep everyone accounted for.</p>
+      </div>
+      <span class="intro-icon" aria-hidden="true">🌼</span>
+    </section>
+
+    <section class="panel dashboard-panel" aria-labelledby="requests-title">
+      <div class="panel-heading dashboard-heading">
+        <div>
+          <p class="eyebrow">Today in the woodland</p>
+          <h2 id="requests-title">Pass requests <span id="request-count" class="count-badge">0</span></h2>
+        </div>
+        <span class="heading-icon" aria-hidden="true">🪴</span>
+      </div>
+      <div id="teacher-message" class="notice" role="status" aria-live="polite" hidden></div>
+      <div id="teacher-passes" class="teacher-pass-list" aria-live="polite"></div>
+    </section>
+    <p class="page-note">Requests update automatically when a student checks in or submits a pass.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9efe8">
+  <title>Student Portal · Forest Friend Pass</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="student">
+  <header class="site-header">
+    <a class="wordmark" href="index.html" aria-label="Forest Friend Pass home"><span aria-hidden="true">🐸</span> Forest Friend Pass</a>
+    <a class="button button-small button-quiet" href="index.html">Home</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-intro">
+      <div>
+        <p class="eyebrow">Welcome, forest friend</p>
+        <h1>Student Portal</h1>
+        <p>Request a pass, then check back in when you return.</p>
+      </div>
+      <span class="intro-icon" aria-hidden="true">🍄</span>
+    </section>
+
+    <div class="student-grid">
+      <section class="panel request-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Make a request</p>
+            <h2>Need a little break?</h2>
+          </div>
+          <span class="heading-icon" aria-hidden="true">🌿</span>
+        </div>
+        <form id="request-form">
+          <label for="student-name">Your name</label>
+          <input id="student-name" name="studentName" type="text" autocomplete="name" maxlength="80" placeholder="e.g. Jamie Green" required>
+
+          <label for="reason">Reason for your pass</label>
+          <select id="reason" name="reason" required>
+            <option value="" selected disabled>Choose a reason</option>
+            <option value="Restroom">Restroom</option>
+            <option value="Get a drink">Get a drink</option>
+            <option value="Visit the nurse">Visit the nurse</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="note">Note <span class="optional">(optional)</span></label>
+          <textarea id="note" name="note" rows="3" maxlength="300" placeholder="Anything your teacher should know?"></textarea>
+
+          <button class="button button-primary button-full" type="submit">Request Pass <span aria-hidden="true">→</span></button>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel status-panel" aria-labelledby="status-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Your passes</p>
+            <h2 id="status-title">Pass status</h2>
+          </div>
+          <span class="heading-icon" aria-hidden="true">🌱</span>
+        </div>
+        <p class="status-hint">Enter your name above to see your requests and their latest updates.</p>
+        <div id="student-passes" class="pass-list" aria-live="polite"></div>
+      </section>
+    </div>
+    <p class="page-note">Your pass status refreshes automatically while this page is open.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

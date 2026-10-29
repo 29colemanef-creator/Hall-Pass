@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f8">
+  <title>HallPass · Pass Manager</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="HallPass dashboard">
+      <span class="brand-icon" aria-hidden="true">H</span>
+      <span>HallPass</span>
+    </a>
+    <span class="topbar-note"><span class="online-dot" aria-hidden="true"></span> Local pass manager</span>
+  </header>
+
+  <main class="page">
+    <section class="page-heading" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Campus operations</p>
+        <h1 id="page-title">Hall Pass Manager</h1>
+        <p class="page-description">Issue passes, review requests, and keep a clear view of who's heading out.</p>
+      </div>
+      <span class="heading-mark" aria-hidden="true">✦</span>
+    </section>
+
+    <section class="summary-grid" aria-label="Pass summary">
+      <article class="summary-card summary-total">
+        <span class="summary-label">Total passes</span>
+        <strong id="total-count" class="summary-number">—</strong>
+        <span class="summary-caption">All recorded passes</span>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label"><span class="status-dot pending-dot"></span>Pending</span>
+        <strong id="pending-count" class="summary-number">—</strong>
+        <span class="summary-caption">Awaiting a decision</span>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label"><span class="status-dot approved-dot"></span>Approved</span>
+        <strong id="approved-count" class="summary-number">—</strong>
+        <span class="summary-caption">Good to go</span>
+      </article>
+      <article class="summary-card">
+        <span class="summary-label"><span class="status-dot denied-dot"></span>Denied</span>
+        <strong id="denied-count" class="summary-number">—</strong>
+        <span class="summary-caption">Not approved</span>
+      </article>
+    </section>
+
+    <div class="workspace-grid">
+      <section class="card form-card" aria-labelledby="new-pass-title">
+        <div class="section-heading">
+          <div class="section-icon" aria-hidden="true">＋</div>
+          <div>
+            <p class="eyebrow">New request</p>
+            <h2 id="new-pass-title">Issue a pass</h2>
+          </div>
+        </div>
+        <p class="card-description">Add the student and details to create a pending pass.</p>
+        <form id="pass-form">
+          <label for="student-name">Student name</label>
+          <input id="student-name" name="studentName" type="text" maxlength="80" placeholder="e.g. Alex Morgan" autocomplete="off" required>
+
+          <label for="destination">Destination</label>
+          <input id="destination" name="destination" type="text" maxlength="120" placeholder="e.g. Main office" required>
+
+          <label for="reason">Reason</label>
+          <textarea id="reason" name="reason" rows="3" maxlength="500" placeholder="Briefly describe the reason" required></textarea>
+
+          <label for="issued-by">Issued by</label>
+          <input id="issued-by" name="issuedBy" type="text" maxlength="80" placeholder="Teacher or staff name" required>
+
+          <button class="button button-primary submit-button" type="submit">
+            <span>Create pass</span><span aria-hidden="true">→</span>
+          </button>
+          <p id="form-message" class="message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card passes-card" aria-labelledby="passes-title">
+        <div class="passes-heading">
+          <div>
+            <p class="eyebrow">Live overview</p>
+            <h2 id="passes-title">Passes <span id="list-count" class="list-count">0</span></h2>
+          </div>
+          <button id="refresh-button" class="button button-outline" type="button" aria-label="Refresh pass list">
+            <span aria-hidden="true">↻</span> Refresh
+          </button>
+        </div>
+        <div id="list-message" class="message list-message" role="status" aria-live="polite"></div>
+        <div id="pass-list" class="pass-list" aria-live="polite">
+          <div class="empty-state">Loading passes…</div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer-note">Pass records are stored locally on this server.</footer>
+  </main>
+</body>
+</html>

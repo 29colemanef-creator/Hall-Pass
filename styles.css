@@ -1,0 +1,207 @@
+:root {
+  --bg: #e9efe8;
+  --bg-soft: #f3f7f2;
+  --panel: #f9fbf8;
+  --panel-alt: #f6faf6;
+  --border: #dde6dc;
+  --shadow: 0 12px 28px rgba(60, 82, 70, 0.08);
+  --text: #34463a;
+  --muted: #78877b;
+  --frog: #7fa68a;
+  --frog-dark: #5e856a;
+  --frog-pale: #e6f0e5;
+  --mushroom: #d99b7d;
+  --mushroom-pale: #f7e9e1;
+  --pending: #a87450;
+  --pending-pale: #f8eee2;
+  --returned: #608168;
+  --returned-pale: #e7f1e7;
+  font-family: "Segoe UI", "Avenir Next", Avenir, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 10% 12%, rgba(255,255,255,.52), transparent 28rem),
+    radial-gradient(ellipse at 94% 88%, rgba(208,225,209,.46), transparent 30rem),
+    var(--bg);
+}
+
+button, input, select, textarea { font: inherit; }
+a { color: inherit; }
+
+.landing-page {
+  display: grid;
+  place-items: center;
+  padding: 28px 18px;
+}
+
+.landing-card {
+  width: min(100%, 520px);
+  padding: 52px 44px 38px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid rgba(221,230,220,.9);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.brand-mark {
+  position: relative;
+  display: grid;
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 25px;
+  place-items: center;
+  background: var(--frog-pale);
+  border-radius: 30px;
+  transform: rotate(-4deg);
+}
+
+.brand-frog { font-size: 46px; transform: rotate(4deg); }
+.brand-mushroom { position: absolute; right: -9px; bottom: -7px; font-size: 28px; transform: rotate(9deg); }
+.eyebrow { margin: 0 0 8px; color: var(--frog-dark); font-size: .73rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+h1, h2, p { margin-top: 0; }
+.landing-card h1 { margin-bottom: 12px; font-size: clamp(2.15rem, 8vw, 3rem); line-height: 1.08; letter-spacing: -.055em; }
+.landing-copy { max-width: 340px; margin: 0 auto; color: var(--muted); line-height: 1.65; }
+.landing-actions { display: grid; gap: 12px; margin: 32px 0 24px; }
+.landing-footnote { margin: 0; color: #95a196; font-size: .84rem; }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 12px 19px;
+  color: var(--text);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.button:hover { transform: translateY(-1px); }
+.button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(94,133,106,.3);
+  outline-offset: 2px;
+}
+.button-primary { color: #fff; background: var(--frog-dark); box-shadow: 0 5px 12px rgba(94,133,106,.16); }
+.button-primary:hover { background: #52775d; box-shadow: 0 7px 16px rgba(94,133,106,.22); }
+.button-secondary { color: #875b47; background: var(--mushroom-pale); border-color: #f0ddd2; }
+.button-secondary:hover { background: #f2ded3; }
+.button-quiet { color: #59715e; background: rgba(249,251,248,.72); border-color: var(--border); }
+.button-quiet:hover { background: var(--panel); }
+.button-small { min-height: 40px; padding: 9px 15px; font-size: .9rem; }
+.button-full { width: 100%; margin-top: 8px; }
+.button-soft { color: #54715c; background: var(--frog-pale); border-color: #d8e6d7; }
+.button-soft:hover { background: #dcebdc; }
+.button-warm { color: #855b45; background: var(--mushroom-pale); border-color: #efdbcf; }
+.button-warm:hover { background: #f1ddd2; }
+.button-danger { color: #8c5a54; background: #f9eeeb; border-color: #f0dfda; }
+.button-danger:hover { background: #f3e1dc; }
+
+.site-header {
+  display: flex;
+  width: min(100% - 40px, 1080px);
+  min-height: 78px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.wordmark { display: inline-flex; align-items: center; gap: 9px; color: #506d57; font-size: .96rem; font-weight: 750; text-decoration: none; }
+.wordmark span { font-size: 1.35rem; }
+.page-shell { width: min(100% - 40px, 920px); margin: 28px auto 60px; }
+.page-intro { display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; padding: 8px 8px 8px 4px; }
+.page-intro h1 { margin: 0 0 7px; font-size: clamp(2rem, 5vw, 2.7rem); letter-spacing: -.05em; }
+.page-intro p:last-child { margin: 0; color: var(--muted); line-height: 1.5; }
+.intro-icon { display: grid; width: 66px; height: 66px; flex: 0 0 auto; margin-left: 20px; place-items: center; background: var(--mushroom-pale); border-radius: 22px; font-size: 29px; }
+.student-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 20px; align-items: start; }
+.panel { padding: 27px; background: var(--panel); border: 1px solid var(--border); border-radius: 22px; box-shadow: var(--shadow); }
+.panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 23px; }
+.panel-heading h2 { margin: 0; font-size: 1.35rem; letter-spacing: -.035em; }
+.heading-icon { display: grid; width: 42px; height: 42px; flex: 0 0 auto; place-items: center; background: var(--bg-soft); border-radius: 15px; font-size: 21px; }
+
+form { display: grid; }
+label { margin: 0 0 7px; color: #536457; font-size: .88rem; font-weight: 700; }
+input, select, textarea {
+  width: 100%;
+  margin: 0 0 18px;
+  padding: 12px 13px;
+  color: var(--text);
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+}
+input, select { min-height: 46px; }
+textarea { min-height: 88px; resize: vertical; line-height: 1.5; }
+input::placeholder, textarea::placeholder { color: #a0aaa1; }
+.optional { color: #99a39a; font-size: .82rem; font-weight: 500; }
+.form-message { min-height: 1.2em; margin: 11px 0 0; color: var(--returned); font-size: .87rem; }
+.form-message.is-error, .notice.is-error { color: #995e50; }
+
+.status-hint { margin: -5px 0 17px; color: var(--muted); font-size: .92rem; line-height: 1.55; }
+.pass-list, .teacher-pass-list { display: grid; gap: 12px; }
+.student-pass, .teacher-pass {
+  padding: 16px;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+.student-pass-top, .teacher-pass-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.student-pass h3, .teacher-pass h3 { margin: 0 0 5px; font-size: 1rem; }
+.pass-meta { margin: 0; color: var(--muted); font-size: .83rem; line-height: 1.5; }
+.pass-note { margin: 10px 0 0; padding-top: 9px; color: #68796c; border-top: 1px solid var(--border); font-size: .88rem; line-height: 1.5; overflow-wrap: anywhere; }
+.status-badge { display: inline-flex; flex: 0 0 auto; padding: 6px 10px; align-items: center; border-radius: 999px; font-size: .73rem; font-weight: 750; letter-spacing: .015em; }
+.status-pending { color: var(--pending); background: var(--pending-pale); }
+.status-approved { color: #54715c; background: var(--frog-pale); }
+.status-returned { color: var(--returned); background: var(--returned-pale); }
+.student-pass .button { width: 100%; margin-top: 14px; }
+.empty-state { padding: 22px 16px; color: var(--muted); background: var(--panel-alt); border: 1px dashed #d8e3d8; border-radius: 14px; font-size: .9rem; line-height: 1.55; text-align: center; }
+.page-note { margin: 18px 4px 0; color: #87958a; font-size: .82rem; text-align: center; }
+
+.dashboard-panel { padding: 29px; }
+.dashboard-heading { margin-bottom: 20px; }
+.dashboard-heading h2 { display: flex; align-items: center; gap: 10px; }
+.count-badge { display: inline-grid; min-width: 25px; height: 25px; padding: 0 7px; place-items: center; color: #58715d; background: var(--frog-pale); border-radius: 99px; font-size: .78rem; letter-spacing: 0; }
+.teacher-pass { padding: 18px; }
+.teacher-pass-top { align-items: center; }
+.teacher-pass h3 { font-size: 1.04rem; }
+.teacher-pass .pass-meta { margin-top: 3px; }
+.teacher-pass .pass-note { max-width: 68ch; }
+.teacher-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+.teacher-actions .button { min-height: 38px; padding: 8px 12px; font-size: .83rem; }
+.notice { margin-bottom: 14px; color: var(--returned); font-size: .87rem; }
+[hidden] { display: none !important; }
+
+@media (max-width: 700px) {
+  .student-grid { grid-template-columns: 1fr; }
+  .page-shell { margin-top: 20px; }
+  .site-header { min-height: 68px; }
+  .panel { padding: 22px; }
+}
+
+@media (max-width: 440px) {
+  .landing-card { padding: 38px 23px 30px; border-radius: 23px; }
+  .site-header, .page-shell { width: min(100% - 28px, 920px); }
+  .wordmark { font-size: .84rem; }
+  .page-intro { align-items: flex-start; }
+  .intro-icon { width: 52px; height: 52px; margin-left: 10px; border-radius: 17px; font-size: 24px; }
+  .panel { padding: 19px; border-radius: 18px; }
+  .student-pass-top, .teacher-pass-top { align-items: flex-start; }
+  .teacher-actions .button { flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
